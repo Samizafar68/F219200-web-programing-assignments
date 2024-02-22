@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            border: 1px solid black;
+            border: none;
+            width: 30%;
+            height: 470px;
+            margin-left: 600px;
+            margin-top: 200px;
+            box-shadow: 5px 8px 8px 10px rgb(28, 34, 40);
+            animation: rotate 5s ease infinite;
+            
+            animation-direction: alternate;
+        }  
+        @keyframes rotate {
+            0%,50%{
+                transform: translateX(100px, 0);
+            }
+            50.1%,100%{
+                transform: translate(-1250px,0);
+            }
+        }
+
+    </style>
+</head>
+<body style="background-color: rgb(63, 110, 171);">
+    <div class="box">
+      <img src="we.jpg" alt="Here picture" sizes="10" srcset="" style="width: 100%;">
+      <h4 style="font-weight: bold;text-align: center;font-size:x-large;margin-top: 26px;">Nice Pic</h4>
+    </div>
+</body>
+</html>
