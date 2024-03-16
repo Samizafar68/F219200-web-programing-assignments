@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Clock</title>
+<style>
+body {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.clock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 70px;
+}
+
+.time {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hour, .minutes, .seconds, .periods {
+    border: 1px solid;
+    border-radius: 5px;
+    background-color: #333;
+    padding-left: 50px;
+    padding-right: 50px;
+    height: 120px;
+    margin: 10px;
+    text-align: center;
+}
+
+.top {
+    margin-top: 10px;
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.number {
+    color: whitesmoke;
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+</style>
+</head>
+<body>
+<div class="clock">
+    <h1 style="color: white;align-items: center;">Welcome to Digital Clock</h1>
+    <div class="time" id="clock">
+        <div class="hour" style="background-color: darkturquoise">
+            <div class="top">HOURS</div>
+            <div class="number" id="hour"></div>
+        </div>
+        <div class="minutes" style="background-color: lightgreen;">
+            <div class="top">MINUTES</div>
+            <div class="number" id="minutes"></div>
+        </div>
+        <div class="seconds" style="background-color: darkorange;">
+            <div class="top">SECONDS</div>
+            <div class="number" id="seconds"></div>
+        </div>
+        <div class="periods" style="background-color: darkgreen;">
+            <div class="top">PERIODS</div>
+            <div class="number" id="period"></div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+let updateClock=()=> {
+    var now = new Date();
+    var hours = now.getHours();
+    var minutes = now.getMinutes();
+    var seconds = now.getSeconds();
+    var period = hours < 12 ? 'AM' : 'PM';
+
+    hours = hours % 12;
+    hours = hours ? hours : 12; // Handle midnight am and pm
+    hours = hours < 10 ? '0' + hours : hours;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+
+    // Display the time
+    $('#hour').text(hours);
+    $('#minutes').text(minutes);
+    $('#seconds').text(seconds);
+    $('#period').text(period);
+}
+
+// Update the clock every second
+setInterval(updateClock, 1000);
+
+// Initial call to update the clock
+updateClock();
+</script>
+</body>
+</html>
